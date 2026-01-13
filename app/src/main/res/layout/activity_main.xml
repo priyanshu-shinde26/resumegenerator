@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F0F4F8">
+
+    <!-- GPS Location - Top Right -->
+    <TextView
+        android:id="@+id/tvGps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GPS: Loading..."
+        android:textSize="12sp"
+        android:textColor="#666666"
+        android:background="@drawable/gps_bg"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resume Generator"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#2196F3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvGps"
+        android:layout_marginTop="20dp" />
+
+    <!-- Font Size Controls -->
+    <TextView
+        android:id="@+id/tvFontSizeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Font Size"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        android:layout_marginTop="30dp" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/sliderFontSize"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:valueFrom="12.0"
+        android:valueTo="32.0"
+        android:value="16.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFontSizeLabel"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:id="@+id/tvFontSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Font Size: 16"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sliderFontSize"
+        android:layout_marginTop="8dp" />
+
+    <!-- Font Color Picker Button -->
+    <TextView
+        android:id="@+id/tvFontColorLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Font Color"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFontSize"
+        android:layout_marginTop="24dp" />
+
+    <Button
+        android:id="@+id/btnFontColorPicker"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:text="Pick Font Color"
+        android:textSize="14sp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#FF5722"
+        style="@style/Widget.Material3.Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFontColorLabel"
+        android:layout_marginTop="12dp" />
+
+    <!-- Background Color Picker Button -->
+    <TextView
+        android:id="@+id/tvBgColorLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Background Color"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnFontColorPicker"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/btnBgColorPicker"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:text="Pick Background Color"
+        android:textSize="14sp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#4CAF50"
+        style="@style/Widget.Material3.Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvBgColorLabel"
+        android:layout_marginTop="12dp" />
+
+    <!-- Regenerate Button -->
+    <Button
+        android:id="@+id/btnRegenerate"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:text="Regenerate Resume"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#2196F3"
+        style="@style/Widget.Material3.Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBgColorPicker"
+        android:layout_marginTop="24dp" />
+
+    <!-- Resume Display Card -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnRegenerate"
+        android:layout_marginTop="20dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvResume"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tap Regenerate to load your resume from API\n\n📍 GPS location shown top-right\n🎨 Customize with slider and color pickers"
+                android:textSize="16sp"
+                android:padding="24dp"
+                android:textColor="#000000"
+                android:background="#FFFFFF" />
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
